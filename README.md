@@ -1,94 +1,120 @@
-# ZIPCrackBash
+ZIPCrackBash v1.0
 
-`ZIPCrackBash` est un script en Bash conçu pour effectuer une attaque par force brute sur des fichiers ZIP protégés par mot de passe. Il génère des permutations à partir d'un fichier d'entrée et tente chaque mot de passe jusqu'à trouver le bon.
+ZIPCrackBash is a Bash script designed to perform brute-force attacks on password-protected ZIP files. It generates permutations from an input file and tests each password until the correct one is found.
 
-## Fonctionnalités
+⚠️ This script is intended for legal and ethical use only, strictly within the context of authorized pentesting activities. Misuse of this tool is prohibited.
+New in Version 1.0
 
-- **Génération de permutations** : Crée toutes les combinaisons possibles à partir des colonnes d'un fichier d'entrée.
-- **Gestion des fichiers temporaires** : Les permutations sont stockées dans un fichier temporaire pour un traitement optimisé.
-- **Support pour plusieurs lignes d'entrée** : Peut lire des informations utilisateur à partir d'un fichier texte (prénoms, noms, dates, etc.).
-- **Mode verbeux** : Affiche les mots de passe testés.
-- **Sauvegarde des résultats** : Possibilité de sauvegarder les tentatives dans un fichier externe.
-- **Validation des entrées** : Gère les lignes vides et limite le nombre de colonnes analysées.
+This major update introduces several enhancements for a better user experience:
 
-## Prérequis
+    Enhanced User Introduction: A detailed and friendly welcome message explains the script's purpose and how to use it effectively. Includes an example of a correctly formatted input file.
+    Progress Tracking: Added a progress bar to visualize the script's advancement. This feature is only available when verbose (-v) or log options are not enabled.
+    Improved Output Display: Visual indicators clearly highlight when a password is found or a test fails, improving usability.
+    Code Refinements: Streamlined validations and performance improvements ensure smoother execution.
 
-- Système d'exploitation : Linux ou tout autre système compatible avec Bash.
-- Outils nécessaires :
-  - `unzip` : utilisé pour tester les mots de passe.
+Features
 
-## Installation
+    Permutation Generation: Generates all possible combinations from columns in an input file.
+    Temporary File Management: Stores permutations in a temporary file for optimized processing.
+    Multi-Line Input Support: Reads user information (e.g., first names, last names, years) from a text file.
+    Verbose Mode: Displays tested passwords in real-time (-v flag).
+    Save Results: Option to save attempts and results in an external file (-s flag).
+    Input Validation: Handles empty lines, ignores duplicates, and limits the number of analyzed columns.
+    Friendly Interactive Prompts: When not provided in the command line, the script asks for necessary inputs.
 
-Clonez ce dépôt GitHub sur votre machine locale :
+Prerequisites
 
-```bash
-git clone https://github.com/Slymester/ZIPCrackBash.git
-cd ZIPCrackBash
-écriture
+    Operating System: Linux or any Bash-compatible environment.
+    Required Tools:
+        unzip: Used to test passwords against the ZIP archive.
+
+Installation
+
+Clone this repository to your local machine:
+
+git clone https://github.com/Slymester/ZIPCrackBash.git  
 
 
-Rendez le script exécutable :
-chmod +x ZIPCrackBash.sh
+Make the script executable:
 
-Utilisation
-Syntaxe
-./ZIPCrackBash.sh [-v] [-s save_file.txt] [users.txt] [archive.zip]
+chmod +x ZIPCrackBash.sh  
+
+
+Usage
+Syntax
+
+./ZCB.sh [-v] [-s save_file.txt] [input_file.txt] [archive.zip]  
+
+
 Options
 
-    -v : Mode verbeux, affiche les mots de passe testés.
-    -s save_file.txt : Enregistre les mots de passe testés et les statistiques dans un fichier texte.
-    users.txt : (Optionnel) Fichier contenant les informations utilisateur.
-    archive.zip : (Optionnel) Fichier ZIP à déverrouiller.
+    -t    input_file.txt : Input file containing users informations (max 5 words per line).
+    -z    archive.zip: Target ZIP archive to crack.
+    -s    save_file.txt : Saves tested passwords and statistics to a specified text file (optional).
+    -v    Verbose mode, displays passwords being tested (optional).
+    -o    Output log file to store the results (optional).
+    -d    Enable debug mode for detailed logs (optional).
+    -h    Display this help message.
 
-Exemple d'exécution
 
-    Avec tous les arguments :
-    ./ZIPCrackBash.sh -v -s attempts.log users.txt archive.zip
+Example Execution
 
-Exécution interactive :
+    With all arguments:
 
-Si vous n'indiquez pas les fichiers en ligne de commande, le script vous les demandera :
+./ZCB.sh -v -s attempts.log -t users.txt -z archive.zip -d -h  
 
-./ZIPCrackBash.sh
-What is the name of the file containing user information? users.txt
-What is the name of the ZIP file to crack? archive.zip
-Exemple de fichier d'entrée (users.txt)
 
-Chaque ligne représente un utilisateur avec des informations séparées par des espaces :
+Interactive mode:
 
-John Smith 1984
-Alice Brown 2020
-Mark Lee
+    ./ZCB.sh  
+    What is the name of the file containing users information? users.txt  
+    What is the name of the ZIP file to crack? archive.zip  
 
-Le script générera toutes les permutations possibles des mots sur chaque ligne, par exemple :
+
+Example Input File (users.txt)
+
+Each line represents a user with details separated by spaces:
+
+John Smith 1984  
+Alice Brown 2020  
+Mark Lee ML59 
+
+The script generates all possible permutations from these inputs, e.g.:
 
     John
     Smith
     1984
-    John Smith
-    Smith John 1984
-    etc.
+    JohnSmith
+    SmithJohn
+    Smith1984John
+    ...
 
-Résultats
 
-    Si le mot de passe est trouvé : il sera affiché dans la console et sauvegardé dans le fichier spécifié (si l'option -s est utilisée).
+Results
 
-    Si aucun mot de passe ne correspond, le script affichera :
+    Password Found: A clear success message is displayed with visual indicators.
+    Password Not Found: Displays Password not found. Process completed.
 
-    Password not found. Process completed.
 
-Nettoyage
+Cleaning Up
 
-Le script crée un fichier temporaire pour stocker les permutations. Celui-ci est automatiquement supprimé à la fin de l'exécution.
+The script creates a temporary file for storing permutations, which is automatically deleted after execution.
 Limitations
 
-    Le nombre de colonnes est limité par défaut à 5 pour éviter une surcharge de permutations.
-    Le fichier users.txt doit être bien formaté ; les caractères non alphanumériques sont supprimés automatiquement.
+    Input Columns: Limited to 5 words per line to avoid excessive permutations.
+    Input File Format: Must contain alphanumeric characters separated by spaces.
 
-Contribuer
 
-    Forkez le projet.
-    Créez une branche pour vos modifications (git checkout -b feature/my-feature).
-    Commitez vos modifications (git commit -m 'Add my feature').
-    Poussez sur la branche (git push origin feature/my-feature).
-    Ouvrez une Pull Request.
+Future Plans
+
+The next version will expand functionality to support other archive types (e.g., RAR, 7z), adding flexibility for pentesters.
+
+
+Legal Disclaimer
+
+This tool is strictly for authorized penetration testing and educational purposes. Unauthorized use is illegal and punishable by law. Always obtain proper permissions before testing.
+
+
+Contributing
+
+Contributions are welcome!

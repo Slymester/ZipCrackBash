@@ -31,19 +31,17 @@ Required Tools:
 Installation
 
 Clone this repository to your local machine:
-'''bash
-git clone https://github.com/Slymester/ZIPCrackBash.git  
+    git clone https://github.com/Slymester/ZIPCrackBash.git  
 
 
 Make the script executable:
-
-chmod +x ZIPCrackBash.sh  
+    chmod +x ZIPCrackBash.sh  
 
 
 Usage
 Syntax
 
-./ZCB.sh [-v] [-s save_file.txt] [input_file.txt] [archive.zip]  
+    ./ZCB.sh [-v] [-s save_file.txt] [input_file.txt] [archive.zip]  
 
 
 Options
@@ -57,11 +55,9 @@ Options
     -h    Display this help message.
 
 
-Example Execution
+Example Execution with all arguments:
 
-    With all arguments:
-
-./ZCB.sh -v -s attempts.log -t users.txt -z archive.zip -d -h  
+    ./ZCB.sh -v -s attempts.log -t users.txt -z archive.zip -d -h  
 
 
 Interactive mode:
@@ -75,9 +71,9 @@ Example Input File (users.txt)
 
 Each line represents a user with details separated by spaces:
 
-John Smith 1984  
-Alice Brown 2020  
-Mark Lee ML59 
+    John Smith 1984  
+    Alice Brown 2020  
+    Mark Lee ML59 
 
 The script generates all possible permutations from these inputs, e.g.:
 

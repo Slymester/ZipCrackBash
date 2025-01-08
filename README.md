@@ -1,4 +1,4 @@
-#titre_ZIPCrackBash v1.0_
+#__ZIPCrackBash v1.0__
 
 ZIPCrackBash is a Bash script designed to perform brute-force attacks on password-protected ZIP files. It generates permutations from an input file and tests each password until the correct one is found.
 
@@ -12,7 +12,7 @@ Progress Tracking: Added a progress bar to visualize the script's advancement. T
 Improved Output Display: Visual indicators clearly highlight when a password is found or a test fails, improving usability.
 Code Refinements: Streamlined validations and performance improvements ensure smoother execution.
 
-##titre_Features_
+##Features
 
 Permutation Generation: Generates all possible combinations from columns in an input file.
 Temporary File Management: Stores permutations in a temporary file for optimized processing.
@@ -22,19 +22,19 @@ Save Results: Option to save attempts and results in an external file (-s flag).
 Input Validation: Handles empty lines, ignores duplicates, and limits the number of analyzed columns.
 Friendly Interactive Prompts: When not provided in the command line, the script asks for necessary inputs.
 
-_Prerequisites_
+##Prerequisites
 
 Operating System: Linux or any Bash-compatible environment.
 Required Tools:
     unzip: Used to test passwords against the ZIP archive.
 
-_Installation_
+##Installation
 
-Clone this repository to your local machine:
+###Clone this repository to your local machine:
     git clone https://github.com/Slymester/ZIPCrackBash.git  
 
 
-Make the script executable:
+###Make the script executable:
     chmod +x ZIPCrackBash.sh  
 
 

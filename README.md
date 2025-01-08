@@ -1,4 +1,4 @@
-#__ZIPCrackBash v1.0__
+# __ZIPCrackBash v1.0__
 
 ZIPCrackBash is a Bash script designed to perform brute-force attacks on password-protected ZIP files. It generates permutations from an input file and tests each password until the correct one is found.
 
@@ -12,7 +12,7 @@ Progress Tracking: Added a progress bar to visualize the script's advancement. T
 Improved Output Display: Visual indicators clearly highlight when a password is found or a test fails, improving usability.
 Code Refinements: Streamlined validations and performance improvements ensure smoother execution.
 
-##Features
+## Features
 
 Permutation Generation: Generates all possible combinations from columns in an input file.
 Temporary File Management: Stores permutations in a temporary file for optimized processing.
@@ -22,29 +22,29 @@ Save Results: Option to save attempts and results in an external file (-s flag).
 Input Validation: Handles empty lines, ignores duplicates, and limits the number of analyzed columns.
 Friendly Interactive Prompts: When not provided in the command line, the script asks for necessary inputs.
 
-##Prerequisites
+## Prerequisites
 
 Operating System: Linux or any Bash-compatible environment.
 Required Tools:
     unzip: Used to test passwords against the ZIP archive.
 
-##Installation
+## Installation
 
-###Clone this repository to your local machine:
+### Clone this repository to your local machine:
     git clone https://github.com/Slymester/ZIPCrackBash.git  
 
 
-###Make the script executable:
+### Make the script executable:
     chmod +x ZIPCrackBash.sh  
 
 
-_Usage_
-Syntax
+## Usage
+### Syntax
 
     ./ZCB.sh [-v] [-s save_file.txt] [input_file.txt] [archive.zip]  
 
 
-_Options_
+### Options
 
     -t    input_file.txt : Input file containing users informations (max 5 words per line).
     -z    archive.zip: Target ZIP archive to crack.
@@ -60,7 +60,7 @@ Example Execution with all arguments:
     ./ZCB.sh -v -s attempts.log -t users.txt -z archive.zip -d -h  
 
 
-_Interactive mode:_
+### Interactive mode:
 
     ./ZCB.sh  
     What is the name of the file containing users information? users.txt  
@@ -86,13 +86,13 @@ The script generates all possible permutations from these inputs, e.g.:
     ...
 
 
-_Results_
+### Results
 
     Password Found: A clear success message is displayed with visual indicators.
     Password Not Found: Displays Password not found. Process completed.
 
 
-_Cleaning Up_
+### Cleaning Up
 
 The script creates a temporary file for storing permutations, which is automatically deleted after execution.
 Limitations
@@ -101,16 +101,16 @@ Limitations
     Input File Format: Must contain alphanumeric characters separated by spaces.
 
 
-_Future Plans_
+## Future Plans
 
 The next version will expand functionality to support other archive types (e.g., RAR, 7z), adding flexibility for pentesters.
 
 
-_Legal Disclaimer_
+## Legal Disclaimer
 
 This tool is strictly for authorized penetration testing and educational purposes. Unauthorized use is illegal and punishable by law. Always obtain proper permissions before testing.
 
 
-_Contributing_
+## Contributing
 
 Contributions are welcome!
